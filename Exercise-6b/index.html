@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Name Suggestion</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to the external CSS file -->
+    <script>
+        function showSuggestions(str) {
+            if (str.length == 0) {
+                document.getElementById("suggestions").innerHTML = "";
+                return;
+            }
+            
+            // Create XMLHttpRequest object
+            var xhr = new XMLHttpRequest();
+            
+            // Define what happens when the response is received
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    document.getElementById("suggestions").innerHTML = xhr.responseText;
+                }
+            };
+            
+            // Send the request to the servlet
+            xhr.open("GET", "StudentSuggestion?query=" + str, true);
+            xhr.send();
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Student Name Search</h2>
+        <p>Type a name:</p>
+        <input type="text" onkeyup="showSuggestions(this.value)" placeholder="Enter name..." />
+        
+        <div id="suggestions" class="suggestions"></div> <!-- This is where suggestions will appear -->
+    </div>
+</body>
+</html>
