@@ -1,0 +1,31 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #3071ea;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+.break {
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    color: red;
+    text-align: center;
+}
+
+.classroom {
+    color: red;
+}
